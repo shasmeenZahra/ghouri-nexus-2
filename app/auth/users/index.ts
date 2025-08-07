@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import dbConnect from '@/lib/db';
+import { connectDB } from '@/lib/db'; 
 import User from '@/models/Users';
 import { verifyToken } from '@/lib/auth';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  await dbConnect();
+  await connectDB();
 
   const verified = verifyToken(req, res);
   if ('message' in verified) return;
