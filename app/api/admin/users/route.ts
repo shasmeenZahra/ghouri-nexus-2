@@ -1,10 +1,10 @@
-import { connectToDB } from '@/lib/db';
+import { connectDB } from '@/lib/db';
 import User from '@/models/Users';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    await connectToDB();
+    await connectDB();
     const users = await User.find(); // ✅ should work now
     return NextResponse.json(users);
   } catch (error) {
