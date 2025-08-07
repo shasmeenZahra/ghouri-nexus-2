@@ -1,4 +1,4 @@
-import { connectDB } from '@/lib/db';
+import { connectDB } from "@/lib/db";
 import User from '@/models/Users';
 import { NextResponse } from 'next/server';
 
@@ -12,6 +12,6 @@ export async function GET() {
     return NextResponse.json(
       { message: 'Error fetching users' },
       { status: 500 }
-    ); 
+    ); // ✅ Sends error message with status 500
   }
 }
