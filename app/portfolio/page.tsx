@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -138,7 +139,7 @@ export default function Portfolio() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-20">
+      <section className="pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -279,12 +280,24 @@ export default function Portfolio() {
               Every great project starts with a conversation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-4">
-                Start Your Project
-              </Button>
-              <Button size="lg" variant="outline" className="border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-8 py-4">
-                Get a Quote
-              </Button>
+             <Link href="/get-started">
+  <Button
+    size="lg"
+    className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-4"
+  >
+    Start Your Project
+  </Button>
+</Link>
+
+<Link href="/get-started">
+  <Button
+    size="lg"
+    variant="outline"
+    className="border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-8 py-4"
+  >
+    Get a Quote
+  </Button>
+</Link>
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+import { Image } from "lucide-react";
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -78,22 +80,22 @@ export default function Services() {
       ],
       color: "emerald"
     },
-    {
-      icon: <Gamepad2 className="h-12 w-12" />,
-      title: "Game Development",
-      description: "Engaging games designed for entertainment and user engagement",
-      features: [
-        "Web-based Games",
-        "Mobile Games",
-        "Game Design",
-        "Interactive Experiences",
-        "Game Testing",
-        "Performance Optimization",
-        "Cross-platform Development"
-      ],
-      color: "orange"
-    }
-  ];
+   {
+  icon: <Image className="h-12 w-12" />,
+  title: "Photo Editor",
+  description: "Advanced tools to edit, enhance, and manipulate images efficiently",
+  features: [
+    "Crop & Resize",
+    "Filters & Effects",
+    "Color Correction",
+    "Retouching Tools",
+    "Layer Management",
+    "Export in Multiple Formats",
+    "Cross-platform Support"
+  ],
+  color: "orange"
+},
+  ]
 
   const technologies = [
     { name: "React.js", category: "Frontend" },
@@ -144,7 +146,7 @@ export default function Services() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-20">
+      <section className="pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -180,10 +182,22 @@ export default function Services() {
                     ))}
                   </div>
 
-                  <Button className={`w-full group ${service.color === 'cyan' ? 'bg-cyan-500 hover:bg-cyan-600' : service.color === 'purple' ? 'bg-purple-500 hover:bg-purple-600' : service.color === 'emerald' ? 'bg-emerald-500 hover:bg-emerald-600' : 'bg-orange-500 hover:bg-orange-600'} text-white`}>
-                    Get Started
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                 <Link href="/get-started">
+  <Button
+    className={`w-full group ${
+      service.color === 'cyan'
+        ? 'bg-cyan-500 hover:bg-cyan-600'
+        : service.color === 'purple'
+        ? 'bg-purple-500 hover:bg-purple-600'
+        : service.color === 'emerald'
+        ? 'bg-emerald-500 hover:bg-emerald-600'
+        : 'bg-orange-500 hover:bg-orange-600'
+    } text-white`}
+  >
+    Get Started
+    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+  </Button>
+</Link>
                 </CardContent>
               </Card>
             ))}
@@ -210,95 +224,6 @@ export default function Services() {
               </Badge>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-20 bg-slate-900/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Request a <span className="gradient-text">Quote</span>
-            </h2>
-            <p className="text-xl text-gray-400">
-              Tell us about your project and we'll get back to you with a custom solution
-            </p>
-          </div>
-
-          <Card className="bg-slate-800/50 border-slate-700 card-glow">
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                      Your Name *
-                    </label>
-                    <Input
-                      id="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="bg-slate-700/50 border-slate-600 text-white"
-                      placeholder="Enter your full name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                      Email Address *
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="bg-slate-700/50 border-slate-600 text-white"
-                      placeholder="Enter your email"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
-                    Service Interested In *
-                  </label>
-                  <select
-                    id="service"
-                    value={formData.service}
-                    onChange={(e) => setFormData({...formData, service: e.target.value})}
-                    className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-md px-3 py-2"
-                    required
-                  >
-                    <option value="">Select a service</option>
-                    <option value="web-development">Front-End Web Development</option>
-                    <option value="shopify">Shopify Store Development</option>
-                    <option value="ui-ux">UI/UX Design</option>
-                    <option value="game-development">Game Development</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Project Details *
-                  </label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="bg-slate-700/50 border-slate-600 text-white min-h-[120px]"
-                    placeholder="Tell us about your project requirements..."
-                    required
-                  />
-                </div>
-
-                <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white">
-                  <Zap className="mr-2 h-5 w-5" />
-                  Send Inquiry
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
