@@ -1,22 +1,43 @@
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+"use client";
+import { useState } from "react";
 
-  const formData = new FormData();
-  formData.append("name", form.name);
-  formData.append("email", form.email);
-  formData.append("whatsapp", form.whatsapp);
-  formData.append("experience", form.experience);
-  formData.append("anything", form.anything);
+export default function CandidateForm() {
+  const [loading, setLoading] = useState(false);
 
-  if (form.file) {
-    formData.append("file", form.file); // ✅ file bhi bhej do
-  }
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  const res = await fetch("/api/candidate", {
-    method: "POST",
-    body: formData, // ✅ ab json nahi, formData bhejna hai
-  });
+    setLoading(true);
 
-  const result = await res.json();
-  alert(result.message);
-};
+    const formData = new FormData(e.currentTarget); // ✅ yehi sahi tareeqa hai
+
+    try {
+      const res = await fetch("/api/admin/users/candidate", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+      alert(data.message);
+    } catch (err) {
+      console.error("❌ Error submitting form:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4 p-6 bg-slate-800 rounded-xl">
+      <input type="text" name="name" placeholder="Full Name" className="w-full p-2 rounded bg-slate-700 text-white" required />
+      <input type="email" name="email" placeholder="Email" className="w-full p-2 rounded bg-slate-700 text-white" required />
+      <input type="text" name="whatsapp" placeholder="WhatsApp Number" className="w-full p-2 rounded bg-slate-700 text-white" required />
+      <input type="text" name="experience" placeholder="Experience" className="w-full p-2 rounded bg-slate-700 text-white" />
+      <textarea name="anything" placeholder="Anything else..." className="w-full p-2 rounded bg-slate-700 text-white" />
+      <input type="file" name="file" className="w-full p-2 rounded bg-slate-700 text-white" />
+
+      <button type="submit" disabled={loading} className="px-4 py-2 bg-purple-600 rounded-lg text-white hover:bg-purple-700">
+        {loading ? "Submitting..." : "Submit"}
+      </button>
+    </form>
+  );
+}
