@@ -24,9 +24,10 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
-    { href: '/photo-editing', label: 'Photo editing' },
     { href: '/portfolio', label: 'Portfolio' },
+    {href: '/Candidate' , label: 'Candidate'},
     { href: '/contact', label: 'Contact' },
+    
   ];
 
   return (
