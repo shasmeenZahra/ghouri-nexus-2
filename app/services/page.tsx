@@ -35,67 +35,97 @@ export default function Services() {
   });
 
   const services = [
-    {
-      icon: <Globe className="h-12 w-12" />,
-      title: "Front-End Web Development",
-      description: "Modern, responsive websites built with cutting-edge technologies",
-      features: [
-        "Responsive Web Design",
-        "UI/UX Development",
-        "HTML, CSS, JavaScript",
-        "Bootstrap Framework",
-        "React.js & Next.js",
-        "Tailwind CSS",
-        "API Integrations"
-      ],
-      color: "cyan"
-    },
-    {
-      icon: <ShoppingCart className="h-12 w-12" />,
-      title: "Shopify Store Development",
-      description: "Complete e-commerce solutions with custom themes and functionality",
-      features: [
-        "Custom Theme Development",
-        "Free Theme Setup",
-        "Premium Theme Integration",
-        "Theme Customization",
-        "App Integration",
-        "Payment Gateway Setup",
-        "SEO Optimization"
-      ],
-      color: "purple"
-    },
-    {
-      icon: <Palette className="h-12 w-12" />,
-      title: "UI/UX Design",
-      description: "Beautiful, user-friendly interfaces that convert visitors into customers",
-      features: [
-        "User Interface Design",
-        "User Experience Research",
-        "Wireframing & Prototyping",
-        "Design Systems",
-        "Mobile App Design",
-        "Brand Identity",
-        "Usability Testing"
-      ],
-      color: "emerald"
-    },
-   {
-  icon: <Image className="h-12 w-12" />,
-  title: "Photo Editor",
-  description: "Advanced tools to edit, enhance, and manipulate images efficiently",
-  features: [
-    "Crop & Resize",
-    "Filters & Effects",
-    "Color Correction",
-    "Retouching Tools",
-    "Layer Management",
-    "Export in Multiple Formats",
-    "Cross-platform Support"
-  ],
-  color: "orange"
-},
-  ]
+  {
+    icon: <Globe className="h-12 w-12" />,
+    title: "Front-End Web Development",
+    description: "Modern, responsive websites built with cutting-edge technologies",
+    features: [
+      "Responsive Web Design",
+      "UI/UX Development",
+      "HTML, CSS, JavaScript",
+      "Bootstrap Framework",
+      "React.js & Next.js",
+      "Tailwind CSS",
+      "API Integrations"
+    ],
+    color: "cyan"
+  },
+  {
+    icon: <ShoppingCart className="h-12 w-12" />,
+    title: "Shopify Store Development",
+    description: "Complete e-commerce solutions with custom themes and functionality",
+    features: [
+      "Custom Theme Development",
+      "Free Theme Setup",
+      "Premium Theme Integration",
+      "Theme Customization",
+      "App Integration",
+      "Payment Gateway Setup",
+      "SEO Optimization"
+    ],
+    color: "purple"
+  },
+  {
+    icon: <Palette className="h-12 w-12" />,
+    title: "UI/UX Design",
+    description: "Beautiful, user-friendly interfaces that convert visitors into customers",
+    features: [
+      "User Interface Design",
+      "User Experience Research",
+      "Wireframing & Prototyping",
+      "Design Systems",
+      "Mobile App Design",
+      "Brand Identity",
+      "Usability Testing"
+    ],
+    color: "emerald"
+  },
+  {
+    icon: <Image className="h-12 w-12" />,
+    title: "Photo Editing",
+    description: "Advanced tools to edit, enhance, and manipulate images efficiently",
+    features: [
+      "Crop & Resize",
+      "Filters & Effects",
+      "Color Correction",
+      "Retouching Tools",
+      "Layer Management",
+      "Export in Multiple Formats",
+      "Cross-platform Support"
+    ],
+    color: "orange"
+  },
+  {
+    icon: <Code className="h-12 w-12" />,
+    title: "Video Creation",
+    description: "Create professional-quality videos for social media, ads, or presentations",
+    features: [
+      "Video Editing",
+      "Animations & Transitions",
+      "Audio & Music Integration",
+      "Color Grading",
+      "Text & Captions",
+      "Export in Multiple Formats",
+      "Storyboarding & Planning"
+    ],
+    color: "pink"
+  },
+  {
+    icon: <Zap className="h-12 w-12" />,
+    title: "Finding & Fixing Bugs",
+    description: "Debugging and troubleshooting for applications and websites",
+    features: [
+      "Code Review",
+      "Bug Detection",
+      "Performance Optimization",
+      "Error Logging & Reporting",
+      "Compatibility Testing",
+      "Automated Testing",
+      "Maintenance & Updates"
+    ],
+    color: "teal"
+  }
+ ];
 
   const technologies = [
     { name: "React.js", category: "Frontend" },
