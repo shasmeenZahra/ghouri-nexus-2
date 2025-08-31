@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
-// ✅ Step 1: type define
 type CandidateForm = {
   name: string;
   email: string;
@@ -60,7 +59,7 @@ export default function CandidatePage() {
 
     const res = await fetch("/api/candidate", {
       method: "POST",
-      body: formData, // 👈 ab file bhi jayegi
+      body: formData, 
     });
 
     const result = await res.json();
@@ -145,6 +144,19 @@ export default function CandidatePage() {
                   className="bg-slate-700/50 border-slate-600 text-white"
                   required
                 />
+              </div>
+
+               <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  portfolio
+                </label>
+                      <input
+        type="url"
+        name="portfolio"
+        placeholder="Portfolio Link (Behance, GitHub, Dribbble, etc.)"
+        className="w-full p-2 rounded bg-slate-700 text-white"
+        required
+      />
               </div>
 
               <div>

@@ -13,7 +13,7 @@ export default function GetStarted() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    whatsapp: '', // ✅ New field
+    whatsapp: '',
     subject: '',
     message: '',
     service: '',
