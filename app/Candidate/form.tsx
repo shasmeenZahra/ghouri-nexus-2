@@ -9,7 +9,7 @@ export default function CandidateForm() {
 
     setLoading(true);
 
-    const formData = new FormData(e.currentTarget); // ✅ yehi sahi tareeqa hai
+    const formData = new FormData(e.currentTarget); // ✅ sahi tareeqa
 
     try {
       const res = await fetch("/api/admin/users/candidate", {
@@ -27,7 +27,10 @@ export default function CandidateForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 p-6 bg-slate-800 rounded-xl">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 p-6 bg-slate-800 rounded-xl"
+    >
       <input
         type="text"
         name="name"
