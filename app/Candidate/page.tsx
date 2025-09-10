@@ -1,6 +1,5 @@
 "use client";
 
-
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,10 +15,11 @@ type CandidateForm = {
   experience: string;
   anything: string;
   file: File | null;
+  portfolio: string; // ✅ added portfolio here
 };
 
 export default function CandidatePage() {
-  // ✅ Step 2: typed state
+  // ✅ state with portfolio
   const [form, setForm] = useState<CandidateForm>({
     name: "",
     email: "",
@@ -27,6 +27,7 @@ export default function CandidatePage() {
     experience: "",
     anything: "",
     file: null,
+    portfolio: "",
   });
 
   const handleChange = (
@@ -43,7 +44,6 @@ export default function CandidatePage() {
     }
   };
 
-  // ✅ Step 3: backend ko data bhejna
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -53,13 +53,14 @@ export default function CandidatePage() {
     formData.append("whatsapp", form.whatsapp);
     formData.append("experience", form.experience);
     formData.append("anything", form.anything);
+    formData.append("portfolio", form.portfolio); // ✅ added portfolio to backend
     if (form.file) {
       formData.append("file", form.file);
     }
 
     const res = await fetch("/api/candidate", {
       method: "POST",
-      body: formData, 
+      body: formData,
     });
 
     const result = await res.json();
@@ -68,7 +69,6 @@ export default function CandidatePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-900">
-      {/* Header */}
       <Navbar />
 
       {/* Hero Section */}
@@ -90,6 +90,7 @@ export default function CandidatePage() {
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Name *
@@ -104,6 +105,7 @@ export default function CandidatePage() {
                 />
               </div>
 
+              {/* Email */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Email *
@@ -118,6 +120,7 @@ export default function CandidatePage() {
                 />
               </div>
 
+              {/* WhatsApp */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   WhatsApp *
@@ -132,6 +135,7 @@ export default function CandidatePage() {
                 />
               </div>
 
+              {/* File Upload */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   CV/Resume Upload *
@@ -146,19 +150,23 @@ export default function CandidatePage() {
                 />
               </div>
 
-               <div>
+              {/* Portfolio */}
+              <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
-                  portfolio
+                  Portfolio
                 </label>
-                      <input
-        type="url"
-        name="portfolio"
-        placeholder="Portfolio Link (Behance, GitHub, Dribbble, etc.)"
-        className="w-full p-2 rounded bg-slate-700 text-white"
-        required
-      />
+                <Input
+                  type="url"
+                  name="portfolio"
+                  value={form.portfolio}
+                  onChange={handleChange}
+                  placeholder="Portfolio Link (Behance, GitHub, Dribbble, etc.)"
+                  className="bg-slate-700/50 border-slate-600 text-white"
+                  required
+                />
               </div>
 
+              {/* Experience */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Current Job Experience
@@ -172,6 +180,7 @@ export default function CandidatePage() {
                 />
               </div>
 
+              {/* Anything */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Write Anything
@@ -197,7 +206,6 @@ export default function CandidatePage() {
         </Card>
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
